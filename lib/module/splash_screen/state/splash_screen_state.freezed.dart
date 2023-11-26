@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$SplashScreenState {
-  int get counter => throw _privateConstructorUsedError;
-  set counter(int value) => throw _privateConstructorUsedError;
+  bool get counter => throw _privateConstructorUsedError;
+  set counter(bool value) => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SplashScreenStateCopyWith<SplashScreenState> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $SplashScreenStateCopyWith<$Res> {
           SplashScreenState value, $Res Function(SplashScreenState) then) =
       _$SplashScreenStateCopyWithImpl<$Res, SplashScreenState>;
   @useResult
-  $Res call({int counter});
+  $Res call({bool counter});
 }
 
 /// @nodoc
@@ -52,7 +52,7 @@ class _$SplashScreenStateCopyWithImpl<$Res, $Val extends SplashScreenState>
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+              as bool,
     ) as $Val);
   }
 }
@@ -65,7 +65,7 @@ abstract class _$$SplashScreenStateImplCopyWith<$Res>
       __$$SplashScreenStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int counter});
+  $Res call({bool counter});
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ class __$$SplashScreenStateImplCopyWithImpl<$Res>
       counter: null == counter
           ? _value.counter
           : counter // ignore: cast_nullable_to_non_nullable
-              as int,
+              as bool,
     ));
   }
 }
@@ -93,11 +93,11 @@ class __$$SplashScreenStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SplashScreenStateImpl implements _SplashScreenState {
-  _$SplashScreenStateImpl({this.counter = 0});
+  _$SplashScreenStateImpl({this.counter = false});
 
   @override
   @JsonKey()
-  int counter;
+  bool counter;
 
   @override
   String toString() {
@@ -113,11 +113,11 @@ class _$SplashScreenStateImpl implements _SplashScreenState {
 }
 
 abstract class _SplashScreenState implements SplashScreenState {
-  factory _SplashScreenState({int counter}) = _$SplashScreenStateImpl;
+  factory _SplashScreenState({bool counter}) = _$SplashScreenStateImpl;
 
   @override
-  int get counter;
-  set counter(int value);
+  bool get counter;
+  set counter(bool value);
   @override
   @JsonKey(ignore: true)
   _$$SplashScreenStateImplCopyWith<_$SplashScreenStateImpl> get copyWith =>

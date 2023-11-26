@@ -1,3 +1,5 @@
+import 'package:absensi_rfid_flutter/module/login/view/login_view.dart';
+import 'package:absensi_rfid_flutter/module/splash_screen/event/splash_screen_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/splash_screen_bloc.dart';
@@ -38,11 +40,24 @@ class _SplashScreenViewState extends State<SplashScreenView> {
     return BlocProvider(
       create: (BuildContext context) => bloc,
       child: BlocListener<SplashScreenBloc, SplashScreenState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state.counter = true) {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => LoginView(),
+              ),
+            );
+          }
+        },
         child: BlocBuilder<SplashScreenBloc, SplashScreenState>(
           builder: (context, state) {
             final bloc = context.read<SplashScreenBloc>();
-            return buildView(context, bloc, state);
+            if (state.counter == false) {
+              bloc.add(SplashScreenIncrementEvent());
+              return buildView(context, bloc, state);
+            } else {
+              return LoginView();
+            }
           },
         ),
       ),
@@ -61,10 +76,10 @@ class _SplashScreenViewState extends State<SplashScreenView> {
         children: [
           Center(
             child: Container(
-              child: Image.network(
-                "https://play-lh.googleusercontent.com/lSplnnegQJBIP8KmFYNIwsEW5p-SO0tRDJ7DuEOkhdIvfRjAIfA-pT4ee9muIOXb-6NS",
-                width: 200.0,
-                height: 200.0,
+              child: Image.asset(
+                "assets/logo/logo.png",
+                width: 150.0,
+                height: 150.0,
                 fit: BoxFit.cover,
               ),
             ),
